@@ -9,6 +9,7 @@ const router = express.Router();
 // ...
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
+const spot = require('../../db/models/spot');
 // ...
 
 // const { requireAuth } = require('../../utils/auth');
@@ -23,15 +24,45 @@ router.get('/', async(req, res) => {
             {
                 model: SpotImage
             }
-
-
         ]
+    })
 
+    let spotlist = []
+    spots.forEach(element => {
+        spotlist.push(element.toJSON())
+    });
 
+//avgRating
+spotlist.forEach(spots => {
+    let starsReview = []
+    spots.Reviews.forEach(element => {
+        if(element.stars){
+
+            starsReview.push(element.stars)
+        }
+        let totalStars = starsReview.reduce((a,b) => a + b)
+        spots.avgRating = totalStars/starsReview.length
 
     })
 
-    res.json(spots)
+})
+//preview image url when returning all spots
+    spotlist.forEach(spots =>{
+        spots.SpotImages.forEach(element => {
+            // console.log(element.preview)
+            if(element.preview === true){
+                // console.log(element)
+                spots.previewImage = element.url
+            }delete spots.Reviews
+        })
+        if(!spots.previewImage){
+            spots.previewImage = 'no preview image found'
+        }
+        delete spots.SpotImages
+
+    })
+
+    res.json(spotlist)
 
 })
 

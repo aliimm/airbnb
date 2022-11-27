@@ -27,7 +27,7 @@ module.exports = {
       {
         spotId: 4,
         url:'https://media.houseandgarden.co.uk/photos/635aa9008e602477bacd63a9/2:3/w_656,h_984,c_limit/Screenshot%202022-10-27%20at%2017.51.22.png',
-        preview: true
+        preview: false
       }
     ], {});
   },
