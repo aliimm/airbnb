@@ -32,6 +32,12 @@ module.exports = {
         userId: 4,
         review: 'this place is a steal',
         stars: 2
+      },
+      {
+        spotId: 3,
+        userId: 1,
+        review: 'i love it here',
+        stars: 5
       }
 
     ], {});
