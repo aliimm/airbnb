@@ -1,0 +1,61 @@
+form {
+    display: flex;
+    /* justify-content: center; */
+    flex-direction: column;
+    padding: 24px;
+}
+
+
+
+.welcome{
+    margin-top: -30px;
+}
+/*
+  div {
+    /* width: 1000px; */
+/* height: 100px */
+/* } */
+.loginheader{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    border-bottom:1px solid #CCC;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.email {
+    /* border: black ; */
+    border-radius: 8px 8px 0px 0px;
+    inset: 0px 0px -1px;
+}
+
+.password {
+    border-radius: 0px 0px 8px 8px;
+    inset: 0px 0px -1px
+}
+
+.button{
+background-color: rgb(227, 28, 95);
+color: white;
+margin-top: 70px;
+height: 50px;
+border-radius: 9px;
+
+}
+input {
+    height: 50px;
+    width: 500px;
+    /* box-sizing: border-box; */
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.terms{
+    font-size: small;
+    width: 38em;
+    display: flex;
+    justify-content: right;
+}
