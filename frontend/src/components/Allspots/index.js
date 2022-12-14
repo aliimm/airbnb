@@ -1,28 +1,44 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllSpots } from '../../store/spots';
+import { NavLink } from 'react-router-dom';
+import './AllSpots.css'
+
 
 function AllSpots() {
     const dispatch = useDispatch()
     const spotSelector = useSelector(state => {
-        // console.log('!!!!!', state)
-        return state.spots
-      });
 
-      useEffect(() => {
+        return state.spots
+    });
+    const spotArray = Object.values(spotSelector)
+    console.log(spotArray)
+
+    useEffect(() => {
         dispatch(getAllSpots());
-      }, [dispatch]);
+    }, [dispatch]);
+
 
     //   if(!spotSelector){
     //     return null
     //   }
 
-
     return (
-      <nav>
-        <h1>hello</h1>
-      </nav>
+        <nav className='container'>
+            {spotArray.map(element => (
+                <div className='spotCard' key={element.id}>
+                    <NavLink to={`/api/spots/${element.id}`} >
+                        <img src={element.previewImage} className='spotImg'></img>
+                        <h3>{element.city}, {element.state}</h3>
+                        <h3>{element.avgRating}</h3>
+                        <h3>${element.price} night</h3>
+                    </NavLink>
+                </div>
+            ))}
+
+
+        </nav>
     );
-  }
+}
 
 export default AllSpots
