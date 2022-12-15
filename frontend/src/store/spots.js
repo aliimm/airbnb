@@ -1,63 +1,89 @@
+import csrfFetch from "./csrf";
 const LOAD = 'spots/GETALLSPOTS';
 const ONE = 'spots/GETONESPOT';
 const EDIT = 'spots/EDITSPOT'
 const CREATE = 'spots/CREATESPOT'
+const DELETE = 'spot/DELETESPOT'
 
-const edit = (specificSpot) => ({
-    type: EDIT,
-    specificSpot
-})
 
-const load = (spotList) => ({
-    type: LOAD,
-    spotList
-});
+const spotDelete = (deleteSpot)=> {
+    return {
+        type: DELETE,
+        deleteSpot
+    }
+}
 
-const one = (oneSpot) => ({
-    type: ONE,
-    oneSpot
-})
+const edit = (specificSpot) => {
+    return {
+        type: EDIT,
+        specificSpot
+    }
+}
 
-const create = (createSpot) => ({
-    type: CREATE,
-    createSpot
-})
+const load = (spotList) => {
+    return {
+        type: LOAD,
+        spotList
+    }
+};
 
-export const createOneSpot = (newSpot) => async (dispatch) => {
-    const response = await fetch('/api/spots/create', /*UNSURE ABOUT FETCH?*/{
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newSpot),
+const one = (oneSpot) => {
+    return {
+        type: ONE,
+        oneSpot
+    }
+}
+
+const create = (createSpot) => {
+    return {
+        type: CREATE,
+        payload: createSpot
+    };
+};
+
+export const deleteItem = (spotId) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${spotId}`, {
+      method: 'DELETE',
     });
 
     if (response.ok) {
-      const spot = await response.json();
-      dispatch(create(spot));
-      return spot;
+      const { id: spotId } = await response.json();
+      dispatch(spotDelete(spotId));
     }
   };
 
-
-export const editOneSpot = (spotId) => async (dispatch) => {
-    const response = await fetch(`/api/spots/${spotId}`, {
-        method: 'PUT',
+export const createOneSpot = (newSpot) => async (dispatch) => {
+    const response = await csrfFetch('/api/spots', /*UNSURE ABOUT FETCH?*/{
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(spotId),
+        body: JSON.stringify(newSpot),
     });
 
     if (response.ok) {
         const spot = await response.json();
-        dispatch(edit(spot));//THIS probaby needs to be changed
+        dispatch(create(spot));
         return spot;
     }
 };
 
 
+export const editOneSpot = (updatedSpot) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${updatedSpot.id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedSpot),
+    });
 
+    if (response.ok) {
+        const spot = await response.json();
+        dispatch(edit(spot));
+        return spot;
+    }
+};
 
 
 export const getOneSpot = (spotId) => async dispatch => {
-    const response = await fetch(`/api/spots/${spotId}`);
+    const response = await csrfFetch(`/api/spots/${spotId}`);
 
     if (response.ok) {
         const spot = await response.json();
@@ -67,7 +93,7 @@ export const getOneSpot = (spotId) => async dispatch => {
 
 
 export const getAllSpots = () => async dispatch => {
-    const response = await fetch(`/api/spots`);
+    const response = await csrfFetch(`/api/spots`);
 
     if (response.ok) {
         const spotData = await response.json();
@@ -76,36 +102,50 @@ export const getAllSpots = () => async dispatch => {
 };
 
 
-// const initalState = {allSpots = {}, specificSpot = {}};
+const initialState = { allSpots: {}, oneSpot: {} }
 
-const spotReducer = (state = {}, action) => {
+
+const spotReducer = (state = initialState, action) => {
+    console.log(action)
     switch (action.type) {
-        case LOAD:
-            const allSpots = {};
-            action.spotList.Spots.forEach(spot => {
-                allSpots[spot.id] = spot;
-            });
-            return allSpots;
-        case ONE:
-            console.log(action.oneSpot)
-            return action.oneSpot
-        case CREATE:
-                const newState = {
-                  ...state,
-                  [action.spot.id]: action.spot,
-                };
-                const spotList = newState.list.map((id) => newState[id]);
-                spotList.push(action.pokemon);
-                return newState;
-              }
-              return {
-                ...state,
-                [action.pokemon.id]: {
-                  ...state[action.pokemon.id],
-                  ...action.pokemon,
-                },
+        case LOAD: {
+            const newState = { allSpots: {}, oneSpot: {} };
+            action.spotList.Spots.forEach(spot => newState.allSpots[spot.id] = spot);
+            return newState;
+        }
+        case ONE: {
+            const newState = { ...state, oneSpot: {} };
+            newState.oneSpot = action.oneSpot
+            return newState
+        }
+        case CREATE: {
+            const newState = { ...state, allSpots: { ...state.allSpots } };
+            if (Array.isArray(action.payload)) {
+                action.payload.forEach(spot => {
+                    newState.allSpots[spot.id] = spot
+                })
+            } else {
+                newState.allSpots[action.payload.id] = action.payload
             }
-
+            return newState
+        }
+        case EDIT: {
+            const newState = { ...state, allSpots: { ...state.allSpots } };
+            if (Array.isArray(action.specificSpot)) {
+                action.specificSpot.forEach(spot => {
+                    newState.allSpots[spot.id] = spot
+                })
+            } else {
+                newState.allSpots[action.specificSpot.id] = action.specificSpot
+            }
+            return newState
+        }
+        case DELETE: {
+            const newState = {...state}
+            delete newState.allSpots[action.deleteSpot];
+            // delete newState.oneSpot[action.deleteSpot];
+            return newState;
+        }
         default:
             return state
     }

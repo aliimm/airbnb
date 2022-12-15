@@ -9,10 +9,11 @@ function AllSpots() {
     const dispatch = useDispatch()
     const spotSelector = useSelector(state => {
 
-        return state.spots
+        return state.spots.allSpots
     });
+    console.log(spotSelector)
     const spotArray = Object.values(spotSelector)
-    console.log(spotArray)
+    console.log("!!!!!",spotArray)
 
     useEffect(() => {
         dispatch(getAllSpots());

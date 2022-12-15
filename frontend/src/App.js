@@ -23,13 +23,13 @@ function App() {
           <Route exact path='/'>
             <AllSpots />
           </Route>
+          <Route exact path='/spots/:spotId/edit'>
+            <EditSpot/>
+          </Route>
           <Route exact path='/api/spots/:spotId'>
             <SpotDetails/>
           </Route>
-          <Route exact path='/api/spots/:spotId'>
-            <EditSpot/>
-          </Route>
-          <Route exact path='/api/spots/create'>
+          <Route exact path='/'>
             <CreateSpotModal/>
           </Route>
 

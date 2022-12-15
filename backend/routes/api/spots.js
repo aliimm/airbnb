@@ -107,7 +107,7 @@ router.get('/', async (req, res) => {
     allSpots.forEach(element => {
         spotsList.push(element.toJSON())
     })
-    
+
     spotsList.forEach(spot => {
         let spotCount = 0
         let starsSum = 0
@@ -356,6 +356,16 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
             id: inputSpot
         }
     })
+
+        if (!specificspot) {
+            res.status(404).json({
+                "message": "Spot couldn't be found",
+                "statusCode": 404
+            })
+        }
+
+
+
     if (specificspot) {
         await specificspot.destroy()
         return res.status(200).json({
@@ -365,13 +375,6 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
     }
 
 
-
-    if (!specificspot) {
-        res.status(404).json({
-            "message": "Spot couldn't be found",
-            "statusCode": 404
-        })
-    }
 
 
     res.json(specificspot)
@@ -453,17 +456,29 @@ router.put('/:spotId', requireAuth, async (req, res) => {
         }
     })
 
-    if (specificSpot) {
-        specificSpot.set({ address, city, state, country, lat, lng, name, description, price })
-        specificSpot.save();
-        res.json(specificSpot)
 
-    } else {
+
+    if (!specificSpot) {
         return res.status(404).json({
             message: "Spot couldn't be found",
             statuscode: 404
         })
     }
+    if(currentUserId !== specificSpot.ownerId){
+        const err = new Error('Unauthorized User, must be owner to edit spot');
+        err.status = 403
+        throw err
+    }
+
+
+    specificSpot.set({ address, city, state, country, lat, lng, name, description, price })
+    specificSpot.save();
+    res.json(specificSpot)
+
+
+
+
+
 })
 
 //Create a Spot

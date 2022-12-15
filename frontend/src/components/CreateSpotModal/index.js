@@ -1,15 +1,17 @@
-import createOneSpot from '../../store/spots'
-import React, { useEffect, useState } from 'react';
+import {createOneSpot} from '../../store/spots'
+import React, { useState } from 'react';
 import { useModal } from "../../context/Modal";
-
-
-import { useDispatch, useSelector } from 'react-redux';
+import {useHistory} from 'react-router-dom'
+import { useDispatch } from 'react-redux';
 
 
 
 
 function CreateSpotModal() {
+  const { closeModal } = useModal();
   const dispatch = useDispatch();
+  const [errors, setErrors] = useState([]);
+  const history = useHistory()
   const [address, setAddress] = useState('');
   const [city, setCity] = useState('');
   const [state, setState] = useState('');
@@ -20,7 +22,30 @@ function CreateSpotModal() {
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setErrors([]);
+    const payload = {
+      address,
+      city,
+      state,
+      country,
+      lat: +lat,
+      lng: +lng,
+      name,
+      description,
+      price: +price
+    };
+    console.log(payload)
+    let createdSpot = dispatch(createOneSpot(payload));
+    console.log(createdSpot)
 
+    if (createdSpot) {
+      history.push(`/`);
+      // hideForm();
+    }
+    closeModal()
+  };
 
 
 
@@ -28,10 +53,10 @@ function CreateSpotModal() {
   return (
     <>
       <h1>Create a Spot</h1>
-      <form >
-        {/* <ul>
+      <form onSubmit={handleSubmit}>
+        <ul>
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul> */}
+        </ul>
         <label>
           address
           <input

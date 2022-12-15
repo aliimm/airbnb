@@ -3,6 +3,9 @@ import React, { useEffect } from 'react';
 import { getOneSpot } from '../../store/spots';
 import { useParams, useHistory } from 'react-router-dom';
 import EditSpot from '../EditSpot';
+import { NavLink } from 'react-router-dom';
+import { deleteItem } from '../../store/spots';
+
 
 import './SpotDetails.css'
 
@@ -11,16 +14,26 @@ const SpotDetails = () => {
     const history = useHistory()
     const dispatch = useDispatch();
     const { spotId } = useParams();
-    // console.log('!!!!!!!!!!', spotId)
-    const spotSelector = useSelector(state => state.spots);
-    // const spotArray = Object.values(spotSelector)
+    const spotSelector = useSelector(state => state.spots.oneSpot);
 
     useEffect(() => {
         dispatch(getOneSpot(spotId))
     }, [spotId]);
+
+    // useEffect(() => {
+    //     dispatch(deleteItem(spotId))
+    // }, [spotId])
+
+    const deleteSpot = async (e) => {
+        e.preventDefault()
+        let deletedspot = dispatch(deleteItem(spotId))
+        if(deletedspot) history.push('/')
+    }
+
     if (!spotSelector.SpotImages){
         return null
     }
+
 
     return (
         <nav>
@@ -29,7 +42,11 @@ const SpotDetails = () => {
                 <h4><i className="fa-sharp fa-solid fa-star"></i> {spotSelector.avgStarRating} · {spotSelector.numReviews} reviews  · {spotSelector.city}, {spotSelector.state}, {spotSelector.country}</h4>
                 <div className='imgContainer'>
                 {spotSelector.SpotImages.map(x => (<img src={x.url} className='image'/>))}
-                <button onClick={() => history.push('')}>Edit</button>
+
+                
+                <NavLink to={`/spots/${spotSelector.id}/edit`}>Update Spot</NavLink>
+                <button onClick={deleteSpot} >Delete Spot</button>
+
 
 
                 </div>
