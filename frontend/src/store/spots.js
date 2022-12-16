@@ -6,7 +6,7 @@ const CREATE = 'spots/CREATESPOT'
 const DELETE = 'spot/DELETESPOT'
 
 
-const spotDelete = (deleteSpot)=> {
+const spotDelete = (deleteSpot) => {
     return {
         type: DELETE,
         deleteSpot
@@ -47,8 +47,8 @@ export const deleteItem = (spotId) => async (dispatch) => {
     });
 
     if (response.ok) {
-      const { id: spotId } = await response.json();
-      dispatch(spotDelete(spotId));
+      const spot = await response.json();
+      dispatch(spotDelete(spot));
     }
   };
 
@@ -142,8 +142,9 @@ const spotReducer = (state = initialState, action) => {
         }
         case DELETE: {
             const newState = {...state}
-            delete newState.allSpots[action.deleteSpot];
-            // delete newState.oneSpot[action.deleteSpot];
+            const allSpotsCopy = {...state.allSpots}
+            delete allSpotsCopy[action.deleteSpot.id];
+            newState.allSpots = allSpotsCopy
             return newState;
         }
         default:
