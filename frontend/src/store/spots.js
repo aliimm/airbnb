@@ -53,7 +53,7 @@ export const deleteItem = (spotId) => async (dispatch) => {
   };
 
 export const createOneSpot = (newSpot) => async (dispatch) => {
-    const response = await csrfFetch('/api/spots', /*UNSURE ABOUT FETCH?*/{
+    const response = await csrfFetch('/api/spots', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newSpot),
@@ -106,7 +106,6 @@ const initialState = { allSpots: {}, oneSpot: {} }
 
 
 const spotReducer = (state = initialState, action) => {
-    console.log(action)
     switch (action.type) {
         case LOAD: {
             const newState = { allSpots: {}, oneSpot: {} };

@@ -294,7 +294,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 
 //Create a Review for a Spot based on the Spot's id
-router.post('/:spotId/reviews', requireAuth, async (req, res) => {
+router.post('/:spotId/reviews', async (req, res) => {
     const currentUser = req.user.id
     const currentSpot = req.params.spotId
     const { review, stars } = req.body
@@ -384,6 +384,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 //Get all Reviews by a Spot's id
 router.get('/:spotId/reviews', async (req, res) => {
     const spot = req.params.spotId
+
     const spotReview = await Review.findAll({
         where: {
             spotId: spot
@@ -396,12 +397,12 @@ router.get('/:spotId/reviews', async (req, res) => {
                 model: ReviewImage
             }]
     })
-    if (!spotReview.length) {
-        res.status(404).json({
-            "message": "Spot couldn't be found",
-            "statusCode": 404
-        })
-    }
+    // if (!spotReview.length) {
+    //     res.status(404).json({
+    //         "message": "Spot couldn't be found",
+    //         "statusCode": 404
+    //     })
+    // }
 
     spotlist = []
     spotReview.forEach(element => {

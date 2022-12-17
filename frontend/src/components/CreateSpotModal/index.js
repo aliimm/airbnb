@@ -21,6 +21,7 @@ function CreateSpotModal() {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
   const [price, setPrice] = useState('');
+  const [url, setUrl] = useState('')
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -34,11 +35,11 @@ function CreateSpotModal() {
       lng: +lng,
       name,
       description,
-      price: +price
+      price: +price,
+      url
     };
-    console.log(payload)
+    // console.log(payload)
     let createdSpot = dispatch(createOneSpot(payload));
-    console.log(createdSpot)
 
     if (createdSpot) {
       history.push(`/`);
@@ -135,6 +136,15 @@ function CreateSpotModal() {
             type="number"
             value={price}
             onChange={(e) => setPrice(e.target.value)}
+            required
+          />
+        </label>
+        <label>
+        url
+          <input
+            type="text"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
             required
           />
         </label>

@@ -24,6 +24,14 @@ function LoginFormModal() {
         }
       );
   };
+    const handleDemo = () => {
+
+      setCredential('user1@user.io')
+      setPassword('password2')
+      return dispatch(sessionActions.login({ credential, password }))
+
+
+    }
 
   return (
     <>
@@ -59,6 +67,7 @@ function LoginFormModal() {
           <p className="terms">We’ll call or text you to confirm your number. Standard message and data rates apply. Privacy Policy</p>
 
         <button className="button" type="submit">Continue</button>
+        <button onClick={handleDemo} type="submit">Sign in with Demo User</button>
       </form>
     </>
   );

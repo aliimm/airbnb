@@ -2,9 +2,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import React, { useEffect } from 'react';
 import { getOneSpot } from '../../store/spots';
 import { useParams, useHistory } from 'react-router-dom';
-import EditSpot from '../EditSpot';
 import { NavLink } from 'react-router-dom';
 import { deleteItem } from '../../store/spots';
+import AllReviewsForSpot from '../ReviewsSpot';
+import { getReviewsForSpot } from "../../store/review";
 
 
 import './SpotDetails.css'
@@ -14,14 +15,21 @@ const SpotDetails = () => {
     const history = useHistory()
     const dispatch = useDispatch();
     const { spotId } = useParams();
+    const reviewFinder = useSelector(state => state.reviews.reviewList)
+    console.log('reviewFinder', reviewFinder)
     const spotSelector = useSelector(state => state.spots.oneSpot);
-    const currentUser = useSelector(state => state.session.user.id);
-    console.log("abc",currentUser)
-    console.log("def",spotSelector.ownerId)
+    const currentSession = useSelector(state => state)
+    let currentUser
+    if(currentSession.session.user){
+
+     currentUser = currentSession.session.user.id
+    }
+
 
 
     useEffect(() => {
-        dispatch(getOneSpot(spotId))
+        dispatch(getReviewsForSpot(spotId))
+        .then(() => dispatch(getOneSpot(spotId)))
     }, [spotId]);
 
     // useEffect(() => {
@@ -34,14 +42,14 @@ const SpotDetails = () => {
         history.push('/')
     }
 
-    if (!spotSelector.SpotImages) {
+    if (!spotSelector?.SpotImages) {
         return null
     }
 
     // if (spotId === ownerId)
 
 
-        return (
+        return spotSelector && (
             <nav>
                 <div className='detailsDiv'>
                     <h1 className='title'>{spotSelector.description}</h1>
@@ -55,6 +63,23 @@ const SpotDetails = () => {
                         <button onClick={deleteSpot} >Delete Spot</button>
                         </div>
                         }
+                        {/* {reviewFinder.map(x =>(
+                            x.userID === currentUser
+                        ))
+
+                        } */}
+                          { (spotSelector.ownerId !== currentUser ) &&
+                        <div>
+                        <NavLink to={`/spots/${spotSelector.id}/createreview`}>Create a Review</NavLink>
+                        </div>
+                        }
+
+                    <div>
+                        <AllReviewsForSpot/>
+                    </div>
+
+
+
                     </div>
 
 
