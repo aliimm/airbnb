@@ -1,0 +1,22 @@
+.title{
+    display: flex;
+    /* justify-content: right; */
+    font-size: 35px;
+    color: black;
+}
+
+.detailsDiv{
+    /* display: flex;
+    justify-content: center; */
+}
+
+
+.imgContainer{
+  max-width: 50px;
+
+
+}
+.image{
+    width: 397px;
+    width: 596px;
+}

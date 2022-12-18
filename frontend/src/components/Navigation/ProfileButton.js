@@ -4,6 +4,8 @@ import * as sessionActions from '../../store/session';
 import OpenModalMenuItem from './OpenModalMenuItem';
 import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
+import CreateSpotModal from '../CreateSpotModal'
+import './Navigation.css'
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -41,7 +43,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button onClick={openMenu} >
         <i className="fas fa-user-circle" />
       </button>
       <ul className={ulClassName} ref={ulRef}>
@@ -50,6 +52,16 @@ function ProfileButton({ user }) {
             <li>{user.username}</li>
             <li>{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
+            {/* <li> <button onClick={CreateSpotModal}>Create A Spot</button></li> */}
+            <li>
+
+            <OpenModalMenuItem
+              itemText="Create A Spot"
+              onItemClick={closeMenu}
+              modalComponent={<CreateSpotModal />}
+            />
+            </li>
+
             <li>
               <button onClick={logout}>Log Out</button>
             </li>

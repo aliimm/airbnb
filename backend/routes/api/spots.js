@@ -107,7 +107,7 @@ router.get('/', async (req, res) => {
     allSpots.forEach(element => {
         spotsList.push(element.toJSON())
     })
-    
+
     spotsList.forEach(spot => {
         let spotCount = 0
         let starsSum = 0
@@ -318,7 +318,7 @@ router.post('/:spotId/reviews', requireAuth, async (req, res) => {
 
     for (let review of something) {
         if (review.userId === currentUser) {
-            res.status(403).json({
+            return res.status(403).json({
                 "message": "User already has a review for this spot",
                 "statusCode": 403
             })
@@ -356,6 +356,16 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
             id: inputSpot
         }
     })
+
+        if (!specificspot) {
+            res.status(404).json({
+                "message": "Spot couldn't be found",
+                "statusCode": 404
+            })
+        }
+
+
+
     if (specificspot) {
         await specificspot.destroy()
         return res.status(200).json({
@@ -366,13 +376,6 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 
 
 
-    if (!specificspot) {
-        res.status(404).json({
-            "message": "Spot couldn't be found",
-            "statusCode": 404
-        })
-    }
-
 
     res.json(specificspot)
 
@@ -381,6 +384,7 @@ router.delete('/:spotId', requireAuth, async (req, res) => {
 //Get all Reviews by a Spot's id
 router.get('/:spotId/reviews', async (req, res) => {
     const spot = req.params.spotId
+
     const spotReview = await Review.findAll({
         where: {
             spotId: spot
@@ -393,12 +397,12 @@ router.get('/:spotId/reviews', async (req, res) => {
                 model: ReviewImage
             }]
     })
-    if (!spotReview.length) {
-        res.status(404).json({
-            "message": "Spot couldn't be found",
-            "statusCode": 404
-        })
-    }
+    // if (!spotReview.length) {
+    //     res.status(404).json({
+    //         "message": "Spot couldn't be found",
+    //         "statusCode": 404
+    //     })
+    // }
 
     spotlist = []
     spotReview.forEach(element => {
@@ -453,17 +457,29 @@ router.put('/:spotId', requireAuth, async (req, res) => {
         }
     })
 
-    if (specificSpot) {
-        specificSpot.set({ address, city, state, country, lat, lng, name, description, price })
-        specificSpot.save();
-        res.json(specificSpot)
 
-    } else {
+
+    if (!specificSpot) {
         return res.status(404).json({
             message: "Spot couldn't be found",
             statuscode: 404
         })
     }
+    if(+currentUserId !== specificSpot.ownerId){
+        const err = new Error('Unauthorized User, must be owner to edit spot');
+        err.status = 403
+        throw err
+    }
+
+
+    specificSpot.set({ address, city, state, country, lat, lng, name, description, price })
+    specificSpot.save();
+    res.json(specificSpot)
+
+
+
+
+
 })
 
 //Create a Spot
