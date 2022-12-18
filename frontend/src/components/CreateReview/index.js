@@ -12,42 +12,12 @@ function CreateReview() {
     const { spotId } = useParams();
 
     const [errors, setErrors] = useState([]);
-    const [validationErrors, setValidationErrors] = useState([])
+    // const [validationErrors, setValidationErrors] = useState([])
     const history = useHistory()
 
 
     const [review, setReview] = useState('');
     const [stars, setStars] = useState('');
-    // const ReviewFinder = useSelector(state => state.reviews.reviewList)
-    // const SessionIdFinder = useSelector(state => state.session.user?.id)
-
-
-
-
-
-
-
-    // const errorstwo = []
-    // useEffect(() => {
-    //     for (let i = 0; i < ReviewFinder.length; ++i) {
-    //         // console.log(ReviewFinder[i])
-    //         if (SessionIdFinder === ReviewFinder[i].userId) {
-    //             // e.preventDefault()
-    //             errorstwo.push('You have a review for this spot already')
-    //             setErrors(errorstwo)
-
-    //         }
-    //     }
-
-
-    //     setValidationErrors(errorstwo)
-    // }, [dispatch])
-
-    // const createReviewValidation = (e) => {
-    //     if(erro)
-    // }
-
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -57,8 +27,7 @@ function CreateReview() {
         };
 
         setErrors([]);
-        return dispatch(createReview(payload, spotId))
-            // .then(history.push('/'))
+        const createreview = dispatch(createReview(payload, spotId))
             .catch(
                 async (res) => {
                     if (!res.ok) {
@@ -66,11 +35,12 @@ function CreateReview() {
                         if (data.message.includes('Authentication required')) setErrors(['Need to be signed in to make a review'])
                         else if (data && data.errors) setErrors(data.errors);
                         else if (data && data.message) setErrors([data.message])
-
-                        setValidationErrors(errors)
+                        // setValidationErrors(errors)
                     }
+
                 }
-            );
+            )
+        if(createreview) return history.push('/')
 
     };
 

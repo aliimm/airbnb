@@ -1,0 +1,36 @@
+.loginheader{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    border-bottom:1px solid #CCC;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+
+
+button:hover {
+    cursor: pointer;
+}
+
+
+.welcome{
+    margin-top: -30px;
+}
+
+.button{
+    background-color: rgb(227, 28, 95);
+    color: white;
+    margin-top: 70px;
+    height: 50px;
+    border-radius: 9px;
+    }
+
+    .input {
+        height: 50px;
+        width: 500px;
+        /* box-sizing: border-box; */
+    }
+    .email{
+        background-color: aqua;
+    }

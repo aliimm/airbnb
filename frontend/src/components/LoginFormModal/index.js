@@ -44,7 +44,7 @@ function LoginFormModal() {
         </ul>
         {/* <label> */}
           {/* Username or Email */}
-          <h2 className="welcome">Welcome to Airbnb</h2>
+          <h2 className="welcome">Welcome to OriginalBNB</h2>
           <input
           className="email"
           placeholder="example@email.com"

@@ -54,10 +54,10 @@ function EditSpot({ spots }) {
     }
   };
 
-  // const handleCancelClick = (e) => {
-  //   e.preventDefault();
-  //   hideForm();
-  // };
+  const handleCancelClick = (e) => {
+    e.preventDefault();
+    history.push(`/`);
+  };
 
 
   return (
@@ -109,7 +109,7 @@ function EditSpot({ spots }) {
         <button type="submit">Update Spot</button>
         <button
           type="button"
-        // onClick={handleCancelClick}
+        onClick={handleCancelClick}
         >
           Cancel
         </button>

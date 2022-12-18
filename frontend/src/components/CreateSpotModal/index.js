@@ -1,7 +1,7 @@
-import {createOneSpot} from '../../store/spots'
+import { createOneSpot } from '../../store/spots'
 import React, { useState } from 'react';
 import { useModal } from "../../context/Modal";
-import {useHistory} from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
 
 
@@ -39,119 +39,136 @@ function CreateSpotModal() {
       url
     };
     // console.log(payload)
-    let createdSpot = dispatch(createOneSpot(payload));
 
-    if (createdSpot) {
-      history.push(`/`);
-      // hideForm();
+
+    return dispatch(createOneSpot(payload))
+    .catch(
+      async (res) => {
+        if (!res.ok) {
+          const data = await res.json();
+          if (data && data.errors) setErrors(data.errors);
+          if (data && data.message) setErrors([data.message])
+
+
+        }
+
+      }
+      )
+      .then(closeModal)
+      .then(() => history.push('/'))
     }
-    closeModal()
-  };
+
+//   if (createdSpot) {
+//     history.push(`/`);
+//     // hideForm();
+//   }
+//   closeModal()
+// };
 
 
 
 
-  return (
-    <>
-      <h1>Create a Spot</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
-          {errors.map((error, idx) => <li key={idx}>{error}</li>)}
-        </ul>
-        <label>
-          address
-          <input
-            type="text"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          city
-          <input
-            type="text"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+return (
+  <>
+    <h1>Create a Spot</h1>
+    <form onSubmit={handleSubmit}>
+      <ul>
+        {errors.map((error, idx) => <li key={idx}>{error}</li>)}
+      </ul>
+      <label>
+        address
+        <input
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        city
+        <input
+          type="text"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         state
-          <input
-            type="text"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+        <input
+          type="text"
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         country
-          <input
-            type="text"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            required
-          />
-        </label>
-        <label>
-          lat
-          <input
-            type="number"
-            value={lat}
-            onChange={(e) => setLat(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+        <input
+          type="text"
+          value={country}
+          onChange={(e) => setCountry(e.target.value)}
+          required
+        />
+      </label>
+      <label>
+        lat
+        <input
+          type="number"
+          value={lat}
+          onChange={(e) => setLat(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         lng
-          <input
-            type="number"
-            value={lng}
-            onChange={(e) => setLng(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+        <input
+          type="number"
+          value={lng}
+          onChange={(e) => setLng(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         name
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         description
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+        <input
+          type="text"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         price
-          <input
-            type="number"
-            value={price}
-            onChange={(e) => setPrice(e.target.value)}
-            required
-          />
-        </label>
-        <label>
+        <input
+          type="number"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+          required
+        />
+      </label>
+      <label>
         url
-          <input
-            type="text"
-            value={url}
-            onChange={(e) => setUrl(e.target.value)}
-            required
-          />
-        </label>
-        <button type="submit">submit</button>
-      </form>
-    </>
-  );
+        <input
+          type="url"
+          value={url}
+          onChange={(e) => setUrl(e.target.value)}
+          required
+        />
+      </label>
+      <button type="submit">submit</button>
+    </form>
+  </>
+);
 }
 
 export default CreateSpotModal;
