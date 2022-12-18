@@ -49,7 +49,6 @@ export const deleteReview = (reviewId) => async (dispatch) => {
   };
 
 export const createReview = (review, spotId) => async (dispatch) => {
-    console.log("spotID:",spotId)
     const response = await csrfFetch(`/api/spots/${spotId}/reviews`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -69,7 +68,6 @@ const initialState = { spot: {}, user: {} }
 
 
 const reviewReducer = (state = initialState, action) => {
-    console.log('action:',action)
     switch (action.type) {
         case LOAD: {
             const newState = { ...state, spot: {} };

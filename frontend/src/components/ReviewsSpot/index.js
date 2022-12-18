@@ -14,14 +14,12 @@ function AllReviewsForSpot() {
     const reviewSelector = useSelector(state => {
         return state.reviews.reviewList
     });
-    const sessionUserId = useSelector(state => {
-        return state.session.user.id
-    })
+
     const reviewArray = Object?.values(reviewSelector)
-    console.log("sdlkfjladksfj",reviewArray)
+    // console.log("sdlkfjladksfj",reviewArray)
 
     const reviewDelete = async (reviewId) => {
-        console.log("this is reviewId", reviewId)
+        // console.log("this is reviewId", reviewId)
         await dispatch(deleteReview(reviewId))
         // e.preventDefault()
     //     reviewArray.forEach(element => {
@@ -45,7 +43,6 @@ function AllReviewsForSpot() {
                 {reviewArray?.length ? reviewArray?.map(element => (
                     <div className='reviewCard' key={element.id}>
                         <h3>{element.review}</h3>
-                        {console.log(element.id)}
                         <button onClick= {() => reviewDelete(element.id)} >Delete Review</button>
 
                     </div>

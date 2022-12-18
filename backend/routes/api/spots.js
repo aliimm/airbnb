@@ -294,7 +294,7 @@ router.post('/:spotId/images', requireAuth, async (req, res) => {
 
 
 //Create a Review for a Spot based on the Spot's id
-router.post('/:spotId/reviews', async (req, res) => {
+router.post('/:spotId/reviews', requireAuth, async (req, res) => {
     const currentUser = req.user.id
     const currentSpot = req.params.spotId
     const { review, stars } = req.body
@@ -318,7 +318,7 @@ router.post('/:spotId/reviews', async (req, res) => {
 
     for (let review of something) {
         if (review.userId === currentUser) {
-            res.status(403).json({
+            return res.status(403).json({
                 "message": "User already has a review for this spot",
                 "statusCode": 403
             })

@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllSpots } from '../../store/spots';
 import { NavLink } from 'react-router-dom';
-import './AllSpots.css'
+import './AllSpots.css';
+// import {FontAwesomeIcon} from ''
+// import {FontAwesomeIcon} from FontAwesomeIcon
 
 
 function AllSpots() {
@@ -24,14 +26,14 @@ function AllSpots() {
     //     return null
     //   }
 
-    return (
+    return spotArray && (
         <nav className='container'>
             {spotArray.map(element => (
                 <div className='spotCard' key={element.id}>
                     <NavLink to={`/api/spots/${element.id}`} >
                         <img src={element.previewImage} className='spotImg'></img>
                         <h3>{element.city}, {element.state}</h3>
-                        <h3>{element.avgRating}</h3>
+                        {element.avgRating > 0 ? <div> <i class="fa-sharp fa-solid fa-star"></i> {element.avgRating.toFixed(2)}</div> : <div><i class='far fa-star'></i> No Reviews Yet</div>}
                         <h3>${element.price} night</h3>
                     </NavLink>
                 </div>

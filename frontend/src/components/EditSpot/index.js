@@ -7,7 +7,7 @@ import { useHistory } from 'react-router-dom'
 function EditSpot({ spots }) {
   const dispatch = useDispatch();
   const editSelector = useSelector((state) => state.spots.oneSpot)
-  console.log(editSelector)
+  // console.log(editSelector)
 
 
   const history = useHistory()

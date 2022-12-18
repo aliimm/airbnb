@@ -16,7 +16,6 @@ const SpotDetails = () => {
     const dispatch = useDispatch();
     const { spotId } = useParams();
     const reviewFinder = useSelector(state => state.reviews.reviewList)
-    console.log('reviewFinder', reviewFinder)
     const spotSelector = useSelector(state => state.spots.oneSpot);
     const currentSession = useSelector(state => state)
     let currentUser
