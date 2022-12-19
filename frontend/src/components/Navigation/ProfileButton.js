@@ -54,9 +54,10 @@ function ProfileButton({ user }) {
             <li>{user.firstName} {user.lastName}</li>
             <li>{user.email}</li>
             {/* <li> <button onClick={CreateSpotModal}>Create A Spot</button></li> */}
-            <li>
+            <li className='spotButton'>
 
             <OpenModalMenuItem
+
               itemText="Create A Spot"
               onItemClick={closeMenu}
               modalComponent={<CreateSpotModal />}

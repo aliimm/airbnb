@@ -465,11 +465,11 @@ router.put('/:spotId', requireAuth, async (req, res) => {
             statuscode: 404
         })
     }
-    if(+currentUserId !== specificSpot.ownerId){
-        const err = new Error('Unauthorized User, must be owner to edit spot');
-        err.status = 403
-        throw err
-    }
+    // if(+currentUserId !== specificSpot.ownerId){
+    //     const err = new Error('Unauthorized User, must be owner to edit spot');
+    //     err.status = 403
+    //     throw err
+    // }
 
 
     specificSpot.set({ address, city, state, country, lat, lng, name, description, price })

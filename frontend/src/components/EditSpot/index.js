@@ -1,4 +1,4 @@
-import {  useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editOneSpot } from '../../store/spots';
 import { useHistory } from 'react-router-dom'
@@ -63,56 +63,81 @@ function EditSpot({ spots }) {
 
   return (
     <section className="edit-form-holder centered middled">
-      <form onSubmit={handleSubmit}>
+      <form className='editForm' onSubmit={handleSubmit}>
         <h1 className='updatespot'>Update Your Spot</h1>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={updateName}
-        />
-        <input
-          type="text"
-          placeholder="description"
-          value={description}
-          onChange={updateDescription}
-        />
-        <input
-          type="number"
-          placeholder="price"
-          value={price}
-          onChange={updatePrice}
-        />
-        <input
-          type="text"
-          placeholder="address"
-          value={address}
-          onChange={updateAddress}
-        />
-        <input
-          type="text"
-          placeholder="city"
-          value={city}
-          onChange={updateCity}
-        />
-        <input
-          type="text"
-          placeholder="state"
-          value={state}
-          onChange={updateState}
-        />
-        <input
-          type="text"
-          placeholder="country"
-          value={country}
-          onChange={updateCountry}
-        />
+        <label>
+          Name:
+          <input
+            type="text"
+            placeholder="Name"
+            value={name}
+            onChange={updateName}
+          />
+        </label>
+        <label>
+          description:
+
+          <input
+            type="text"
+            placeholder="description"
+            value={description}
+            onChange={updateDescription}
+          />
+        </label>
+        <label>
+          price:
+          <input
+            type="number"
+            placeholder="price"
+            value={price}
+            onChange={updatePrice}
+          />
+        </label>
+        <label>
+          address:
+          <input
+            type="text"
+            placeholder="address"
+            value={address}
+            onChange={updateAddress}
+          />
+        </label>
+
+        <label>
+          city:
+          <input
+            type="text"
+            placeholder="city"
+            value={city}
+            onChange={updateCity}
+          />
+        </label>
+
+        <label>
+          state:
+          <input
+            type="text"
+            placeholder="state"
+            value={state}
+            onChange={updateState}
+          />
+        </label>
+
+        <label>
+          country:
+          <input
+            type="text"
+            placeholder="country"
+            value={country}
+            onChange={updateCountry}
+          />
+        </label>
 
         <button className='othersubmit' type="submit">Update Spot</button>
         <button
           type="button"
-        onClick={handleCancelClick}
-        className='submitbutton'
+          onClick={handleCancelClick}
+          className='submitbutton'
         >
           Cancel
         </button>

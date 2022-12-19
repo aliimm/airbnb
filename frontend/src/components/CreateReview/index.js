@@ -35,27 +35,18 @@ function CreateReview() {
                         if (data.message.includes('Authentication required')) setErrors(['Need to be signed in to make or delete a review'])
                         else if (data && data.errors) setErrors(data.errors);
                         else if (data && data.message) setErrors([data.message])
-                        // setValidationErrors(errors)
                     }
-
                 }
             )
         if(createreview) return history.push('/')
-
     };
-
-
 
 
     return (
         <>
-            <h1 className='title'>Create a Review</h1>
             <form className='createreviewform' onSubmit={handleSubmit}>
+            <h1 className='title'>Create a Review</h1>
 
-                {/* <ul>
-                    {validationErrors.map((errorstwo) => (
-                        <li key={errorstwo}>{errorstwo}</li>
-                    ))}</ul> */}
                 <ul>
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>

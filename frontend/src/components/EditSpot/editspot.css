@@ -1,8 +1,7 @@
 .updatespot{
     display: flex;
     justify-content: center;
-    font-size: large;
-    border-bottom:1px solid #CCC;
+    /* font-size: large; */
     padding-top: 18px;
     padding-bottom: 18px;
 }
@@ -14,11 +13,21 @@
     height: 50px;
     border-radius: 9px;} */
 
-/* .othersubmit{
+.othersubmit{
     background-color: rgb(227, 28, 95);
     color: white;
     margin-top: 70px;
     height: 50px;
     border-radius: 9px;
 
-} */
+}
+
+.editForm{
+
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: none;
+    margin: auto;
+}
