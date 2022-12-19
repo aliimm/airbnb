@@ -1,0 +1,43 @@
+
+.header{
+
+        display: flex;
+        justify-content: center;
+        font-size: large;
+        border-bottom:1px solid #CCC;
+        padding-top: 18px;
+        padding-bottom: 18px;
+
+
+
+}
+
+.messageonform{
+    margin-top: -50px;
+}
+
+.submit{
+    background-color: rgb(227, 28, 95);
+    color: white;
+    margin-top: 20px;
+    height: 39px;
+    border-radius: 9px;
+
+}
+
+
+.stars{
+    display: inline-block;
+    justify-self: center;
+    border-bottom-right-radius: 7px;
+    border-bottom-left-radius: 7px;
+
+}
+.review{
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+
+.createspotform{
+    display: flex;
+justify-content: center;}

@@ -27,12 +27,15 @@
 }
 
 .profile-button {
+    padding-top: 15px;
     display: flex;
-    width: 77px;
+    width: 130px;
+
     height: 42px;
     border-radius: 2rem;
 
     color: black
+
 }
 
 .profile-button > i ~ i {

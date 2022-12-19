@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { getOneSpot } from '../../store/spots';
 import { useParams, useHistory } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
@@ -18,7 +18,6 @@ const SpotDetails = () => {
     const reviewFinder = useSelector(state => state.reviews.reviewList)
     const spotSelector = useSelector(state => state.spots.oneSpot);
     const currentSession = useSelector(state => state)
-    // const [abc, setabc] = useState(false )
     let currentUser
     if(currentSession.session.user){
 
@@ -31,10 +30,6 @@ const SpotDetails = () => {
 
     }, [spotId, dispatch]);
 
-    // useEffect(() => {
-        //     dispatch(deleteItem(spotId))
-        // }, [spotId])
-
         const deleteSpot = async (e) => {
             e.preventDefault()
             await dispatch(deleteItem(spotId))
@@ -45,27 +40,29 @@ const SpotDetails = () => {
             return null
         }
 
-        // if (spotId === ownerId)
-        //element.userId === currentUser
-        console.log("!!!!",reviewFinder.find(element => element.userId === currentUser))
 
         return spotSelector && reviewFinder &&(
             <nav>
                 <div className='detailsDiv'>
                     <h1 className='title'>{spotSelector.description}</h1>
-                    <h4><i className="fa-sharp fa-solid fa-star"></i> {+spotSelector.avgStarRating ? spotSelector.avgStarRating.toFixed(2): <div>no Reviews Yet</div>} · {spotSelector.numReviews} reviews  · {spotSelector.city}, {spotSelector.state}, {spotSelector.country}</h4>
+                    <div className='infobar'><i className="fa-sharp fa-solid fa-star"></i> {+spotSelector.avgStarRating ? spotSelector.avgStarRating.toFixed(2): <>No Reviews Yet</>} · {spotSelector.numReviews} reviews  · {spotSelector.city}, {spotSelector.state}, {spotSelector.country}</div>
                     <div className='imgContainer'>
-                        {spotSelector.SpotImages.map(x => (<img src={x.url} className='image' />))}
+                        {spotSelector.SpotImages.map(x => (<div><img src={x.url} className='image' /></div>))}
 
-                        { (spotSelector.ownerId === currentUser) &&
-                        <div>
-                        <NavLink to={`/spots/${spotSelector.id}/edit`}>Update Spot</NavLink>
-                        <button onClick={deleteSpot} >Delete Spot</button>
-                        </div>
-                        }
 
+                    { (spotSelector.ownerId === currentUser) &&
+                    <div>
+                    <NavLink to={`/spots/${spotSelector.id}/edit`}>Update Spot</NavLink>
+                    <h1></h1>
+                    <button onClick={deleteSpot} >Delete Spot</button>
+                    </div>
+                    }
+
+                    <div className='hostName'>
+                        <h2>Entire guest BNB hosted by {spotSelector.Owner.firstName}  <i class="fa-solid fa-user"></i></h2>
+                    </div>
                           { (spotSelector.ownerId === currentUser || reviewFinder.find(element => element.userId === currentUser) || (currentUser === undefined)) ?
-                          <h1>asdfj</h1>:
+                          <h1></h1>:
                         <div>
                         <NavLink to={`/spots/${spotSelector.id}/createreview`}>Create a Review</NavLink>
                         </div>
@@ -74,14 +71,14 @@ const SpotDetails = () => {
                     <div>
                         <AllReviewsForSpot/>
                     </div>
+                    <div className='specialDiv'>
+                        <h1 className='priceinspecial'>Price ${spotSelector.price}</h1>
+
 
 
 
                     </div>
-
-
-
-
+                    </div>
                 </div>
             </nav >
         )

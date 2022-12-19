@@ -1,0 +1,27 @@
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.submitbutton{
+    background-color: rgb(227, 28, 95);
+    color: white;
+    margin-top: 70px;
+    height: 50px;
+    border-radius: 9px;
+    width: 500px;
+}
+
+.createreviewform{
+    width: 500px;
+    display: flex;
+    justify-content: center;
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    
+}
+/* .label{
+    display: flex;
+    justify-content: center;
+} */

@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { createReview } from '../../store/review'
 import { useParams, useHistory } from 'react-router-dom';
-
+import './createreview.css'
 
 
 
@@ -32,7 +32,7 @@ function CreateReview() {
                 async (res) => {
                     if (!res.ok) {
                         const data = await res.json();
-                        if (data.message.includes('Authentication required')) setErrors(['Need to be signed in to make a review'])
+                        if (data.message.includes('Authentication required')) setErrors(['Need to be signed in to make or delete a review'])
                         else if (data && data.errors) setErrors(data.errors);
                         else if (data && data.message) setErrors([data.message])
                         // setValidationErrors(errors)
@@ -49,8 +49,9 @@ function CreateReview() {
 
     return (
         <>
-            <h1>Create a Review</h1>
-            <form onSubmit={handleSubmit}>
+            <h1 className='title'>Create a Review</h1>
+            <form className='createreviewform' onSubmit={handleSubmit}>
+
                 {/* <ul>
                     {validationErrors.map((errorstwo) => (
                         <li key={errorstwo}>{errorstwo}</li>
@@ -59,8 +60,9 @@ function CreateReview() {
                     {errors.map((error, idx) => <li key={idx}>{error}</li>)}
                 </ul>
                 <label>
-                    review
                     <input
+                    className='review'
+                    placeholder='review'
                         type="text"
                         value={review}
                         onChange={(e) => setReview(e.target.value)}
@@ -68,8 +70,9 @@ function CreateReview() {
                     />
                 </label>
                 <label>
-                    stars
                     <input
+                    className='stars'
+                        placeholder='stars'
                         type="number"
                         min="1"
                         max="5"
@@ -78,7 +81,7 @@ function CreateReview() {
                         required
                     />
                 </label>
-                <button type="submit">submit</button>
+                <button className='submitbutton' type="submit">submit</button>
             </form>
         </>
     );

@@ -156,7 +156,7 @@ router.delete('/:reviewId', requireAuth, async (req, res) => {
 
 
     if (specificReview.userId !== req.user.id) {
-        const err = new Error('You are not the owner of this spot')
+        const err = new Error('You are not the owner of this review')
         err.status = 403
         throw err
     }

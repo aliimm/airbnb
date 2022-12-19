@@ -2,6 +2,7 @@ import {  useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { editOneSpot } from '../../store/spots';
 import { useHistory } from 'react-router-dom'
+import './editspot.css'
 
 
 function EditSpot({ spots }) {
@@ -63,6 +64,7 @@ function EditSpot({ spots }) {
   return (
     <section className="edit-form-holder centered middled">
       <form onSubmit={handleSubmit}>
+        <h1 className='updatespot'>Update Your Spot</h1>
         <input
           type="text"
           placeholder="Name"
@@ -106,10 +108,11 @@ function EditSpot({ spots }) {
           onChange={updateCountry}
         />
 
-        <button type="submit">Update Spot</button>
+        <button className='othersubmit' type="submit">Update Spot</button>
         <button
           type="button"
         onClick={handleCancelClick}
+        className='submitbutton'
         >
           Cancel
         </button>

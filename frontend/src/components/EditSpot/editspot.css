@@ -1,0 +1,24 @@
+.updatespot{
+    display: flex;
+    justify-content: center;
+    font-size: large;
+    border-bottom:1px solid #CCC;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+
+/* .submitbutton{  background-color: rgb(227, 28, 95);
+    color: white;
+    margin-top: 70px;
+    height: 50px;
+    border-radius: 9px;} */
+
+/* .othersubmit{
+    background-color: rgb(227, 28, 95);
+    color: white;
+    margin-top: 70px;
+    height: 50px;
+    border-radius: 9px;
+
+} */

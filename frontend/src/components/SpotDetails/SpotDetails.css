@@ -1,22 +1,67 @@
 .title{
-    display: flex;
+    /* display: flex; */
     /* justify-content: right; */
+    height: 50px;
     font-size: 35px;
     color: black;
 }
 
+.specialDiv{
+background-color: beige;
+
+
+}
+
+
+.infobar{
+    display: inline-flex;
+    text-align: center;
+    height: 40px;
+    width: 100%;
+}
+
 .detailsDiv{
-    /* display: flex;
-    justify-content: center; */
-}
 
-
-.imgContainer{
-  max-width: 50px;
-
+    width: 900px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
 
 }
+
+.hostName{
+
+    border-bottom: 1px solid grey;
+}
+/* .nav{
+    display: flex;
+    align-items: center;
+
+} */
+
+
 .image{
-    width: 397px;
-    width: 596px;
+    border-radius: 10px;
+    /* padding-top: 7px; */
+    max-height: 700px;
+    /* align-items: center; */
+    /* width: 397px; */
+    width: 900px;
+}
+
+.specialDiv{
+display: inline-block;
+justify-content: right;
+height: 145px;
+text-align: center;
+float: right;
+border-radius: 10px;
+width: 300px;
+
+
+}
+
+.priceinspecial{
+    padding-top: 15px;
+
 }
