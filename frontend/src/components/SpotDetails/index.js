@@ -44,7 +44,7 @@ const SpotDetails = () => {
         return spotSelector && reviewFinder &&(
             <nav>
                 <div className='detailsDiv'>
-                    <h1 className='title'>{spotSelector.description}</h1>
+                    <h1 className='title'>{spotSelector.name}</h1>
                     <div className='infobar'><i className="fa-sharp fa-solid fa-star"></i> {+spotSelector.avgStarRating ? spotSelector.avgStarRating.toFixed(2): <>No Reviews Yet</>} · {spotSelector.numReviews} reviews  · {spotSelector.city}, {spotSelector.state}, {spotSelector.country}</div>
                     <div className='imgContainer'>
                         {spotSelector.SpotImages.map(x => (<div><img src={x.url} className='image' /></div>))}
@@ -61,6 +61,13 @@ const SpotDetails = () => {
                     <div className='hostName'>
                         <h2>Entire guest BNB hosted by {spotSelector.Owner.firstName}  <i class="fa-solid fa-user"></i></h2>
                     </div>
+                    <div className='descriptionBlock'>
+                        <h1>Description:</h1>
+                        <p>{spotSelector.description}</p>
+                    </div>
+
+
+
                           { (spotSelector.ownerId === currentUser || reviewFinder.find(element => element.userId === currentUser) || (currentUser === undefined)) ?
                           <h1></h1>:
                         <div>

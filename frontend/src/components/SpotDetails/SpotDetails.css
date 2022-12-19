@@ -1,14 +1,16 @@
 .title{
-    /* display: flex; */
-    /* justify-content: right; */
     height: 50px;
     font-size: 35px;
     color: black;
 }
 
+.descriptionBlock{
+    border-bottom: 1px solid grey;
+    margin-bottom: 18px;
+}
+
 .specialDiv{
 background-color: beige;
-
 
 }
 
@@ -64,4 +66,8 @@ width: 300px;
 .priceinspecial{
     padding-top: 15px;
 
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none;      color: black;
 }

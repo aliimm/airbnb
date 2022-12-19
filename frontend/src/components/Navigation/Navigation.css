@@ -37,15 +37,10 @@
 }
 
 .profile-button {
-    padding-top: 15px;
-    display: flex;
-    width: 130px;
-
-    height: 42px;
-    border-radius: 2rem;
-
+    display: inline-flex;
+    align-items: center;
+    width: 145px;
     color: black
-
 }
 
 .profile-button > i ~ i {
