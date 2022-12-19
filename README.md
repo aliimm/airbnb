@@ -68,6 +68,23 @@ EarthRnR is a clone of the popular home rental web application AirBnB and is des
 
 <br>
 <br>
-<br>
+
+## Homepage
+<img width="1322" alt="Screen Shot 2022-12-19 at 2 13 14 AM" src="https://user-images.githubusercontent.com/53719155/208401991-bc62885f-5aa1-4c1f-94f1-75d452884500.png">
+
+## Reviews / Details Page
+<img width="897" alt="Screen Shot 2022-12-19 at 2 22 15 AM" src="https://user-images.githubusercontent.com/53719155/208403854-2dd51122-b96e-4086-b67a-07f8afb3a5c4.png">
+
+## Log In form Modal
+
+<img width="1297" alt="Screen Shot 2022-12-19 at 2 24 51 AM" src="https://user-images.githubusercontent.com/53719155/208404368-e9463bae-eea4-4174-b7c0-318f4831297c.png">
+
+
+
+
+## State
+<img width="534" alt="Screen Shot 2022-12-19 at 2 18 49 AM" src="https://user-images.githubusercontent.com/53719155/208403115-e6fb3166-3421-45db-a79a-8c682d6f25f9.png">
+
+
 
 
