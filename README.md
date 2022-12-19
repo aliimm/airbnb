@@ -69,6 +69,30 @@ EarthRnR is a clone of the popular home rental web application AirBnB and is des
 <br>
 <br>
 
+## Installation
+
+1. Clone the repo
+   ```sh
+   git clone https://github.com/aliimm/airbnb.git
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. CD into the frontend folder
+   ```sh
+   npm start
+   ```
+4. CD into the backend folder
+   ```sh
+   npm start
+   ```
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+
+
 ## Homepage
 <img width="1322" alt="Screen Shot 2022-12-19 at 2 13 14 AM" src="https://user-images.githubusercontent.com/53719155/208401991-bc62885f-5aa1-4c1f-94f1-75d452884500.png">
 
