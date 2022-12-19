@@ -37,8 +37,9 @@ function SignupFormModal() {
           {errors.map((error, idx) => <li key={idx}>{error}</li>)}
         </ul>
         <h2 className="welcome">Welcome to OriginalBNB</h2>
-        <label className="email">
+        <label >
           <input
+          className="email2"
             placeholder="Email"
             type="text"
             value={email}
@@ -84,6 +85,7 @@ function SignupFormModal() {
         </label>
         <label>
           <input
+          className="confirm"
             placeholder="Confirm Password"
             type="password"
             value={confirmPassword}

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useModal } from "../../context/Modal";
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux';
+import './createspot.css'
 
 
 
@@ -70,14 +71,15 @@ function CreateSpotModal() {
 
 return (
   <>
-    <h1>Create a Spot</h1>
-    <form onSubmit={handleSubmit}>
+    <h1 className='header'>Create a Spot</h1>
+    <form className='createspotform' onSubmit={handleSubmit}>
       <ul>
         {errors.map((error, idx) => <li key={idx}>{error}</li>)}
       </ul>
+    <h3 className='messageonform'>List Your Home on OriginalBNB</h3>
       <label>
-        address
         <input
+        placeholder='address'
           type="text"
           value={address}
           onChange={(e) => setAddress(e.target.value)}
@@ -85,8 +87,8 @@ return (
         />
       </label>
       <label>
-        city
         <input
+        placeholder='city'
           type="text"
           value={city}
           onChange={(e) => setCity(e.target.value)}
@@ -94,8 +96,8 @@ return (
         />
       </label>
       <label>
-        state
         <input
+          placeholder='state'
           type="text"
           value={state}
           onChange={(e) => setState(e.target.value)}
@@ -103,8 +105,8 @@ return (
         />
       </label>
       <label>
-        country
         <input
+        placeholder='country'
           type="text"
           value={country}
           onChange={(e) => setCountry(e.target.value)}
@@ -112,8 +114,8 @@ return (
         />
       </label>
       <label>
-        lat
         <input
+        placeholder='lat'
           type="number"
           value={lat}
           onChange={(e) => setLat(e.target.value)}
@@ -121,8 +123,8 @@ return (
         />
       </label>
       <label>
-        lng
         <input
+        placeholder='lng'
           type="number"
           value={lng}
           onChange={(e) => setLng(e.target.value)}
@@ -130,8 +132,8 @@ return (
         />
       </label>
       <label>
-        name
         <input
+          placeholder='name'
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -139,8 +141,8 @@ return (
         />
       </label>
       <label>
-        description
         <input
+        placeholder='description'
           type="text"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -148,8 +150,8 @@ return (
         />
       </label>
       <label>
-        price
         <input
+        placeholder='price'
           type="number"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
@@ -157,15 +159,15 @@ return (
         />
       </label>
       <label>
-        url
         <input
+        placeholder='url'
           type="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
           required
         />
       </label>
-      <button type="submit">submit</button>
+      <button className='submit' type="submit">submit</button>
     </form>
   </>
 );

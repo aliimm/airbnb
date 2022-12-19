@@ -59,8 +59,6 @@ export const createOneSpot = (newSpot) => async (dispatch) => {
         body: JSON.stringify(newSpot),
     });
 
-
-
     if (response.ok) {
         const spot = await response.json();
         const response2 = await csrfFetch(`/api/spots/${spot.id}/images`, {
@@ -70,7 +68,6 @@ export const createOneSpot = (newSpot) => async (dispatch) => {
                 "url": newSpot.url,
                 "preview": true
             }),
-
         });
         if (response2.ok) {
             spot.previewImage = newSpot.url
@@ -81,8 +78,6 @@ export const createOneSpot = (newSpot) => async (dispatch) => {
             dispatch(create(spot));
             return spot;
         }
-
-
 
     }
 };
