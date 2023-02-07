@@ -1,5 +1,5 @@
 #  Welcome to  OriganlBnB
-EarthRnR is a clone of the popular home rental web application AirBnB and is design to match the same appearance and qualities
+OriganlBnB is a clone of the popular home rental web application AirBnB and is design to match the same appearance and qualities
 #
 
 
