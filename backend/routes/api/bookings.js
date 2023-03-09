@@ -80,46 +80,46 @@ router.put('/:bookingId', requireAuth, async (req, res) => {
             "statusCode": 404
         })
     }
-    // const specificSpotBookings = await Booking.findAll({
-    //     where: {
-    //         spotId
-    //     }
-    // })
+    const specificSpotBookings = await Booking.findAll({
+        where: {
+            spotId
+        }
+    })
 
-    // for (let booking of specificSpotBookings) {
-    //     booking = JSON.parse(JSON.stringify(booking))
+    for (let booking of specificSpotBookings) {
+        booking = JSON.parse(JSON.stringify(booking))
 
-    //     if (startDate == booking.startDate || endDate == booking.endDate) {
-    //         res.status(403).json({
-    //             "message": "Sorry, this spot is already booked for the specified dates",
-    //             "statusCode": 403,
-    //             "errors": {
-    //                 "startDate": "Start date conflicts with an existing booking",
-    //                 "endDate": "End date conflicts with an existing booking"
-    //             }
-    //         })
-    //     }
-    //     if (startDate < booking.endDate && startDate > booking.startDate) {
-    //         res.status(403).json({
-    //             "message": "Sorry, this spot is already booked for the specified dates",
-    //             "statusCode": 403,
-    //             "errors": {
-    //                 "startDate": "Start date conflicts with an existing booking",
-    //                 "endDate": "End date conflicts with an existing booking"
-    //             }
-    //         })
-    //     }
-    //     if (endDate < booking.endDate && endDate > booking.startDate) {
-    //         res.status(403).json({
-    //             "message": "Sorry, this spot is already booked for the specified dates",
-    //             "statusCode": 403,
-    //             "errors": {
-    //                 "startDate": "Start date conflicts with an existing booking",
-    //                 "endDate": "End date conflicts with an existing booking"
-    //             }
-    //         })
-    //     }
-    // }
+        if (startDate == booking.startDate || endDate == booking.endDate) {
+            res.status(403).json({
+                "message": "Sorry, this spot is already booked for the specified dates",
+                "statusCode": 403,
+                "errors": {
+                    "startDate": "Start date conflicts with an existing booking",
+                    "endDate": "End date conflicts with an existing booking"
+                }
+            })
+        }
+        if (startDate < booking.endDate && startDate > booking.startDate) {
+            res.status(403).json({
+                "message": "Sorry, this spot is already booked for the specified dates",
+                "statusCode": 403,
+                "errors": {
+                    "startDate": "Start date conflicts with an existing booking",
+                    "endDate": "End date conflicts with an existing booking"
+                }
+            })
+        }
+        if (endDate < booking.endDate && endDate > booking.startDate) {
+            res.status(403).json({
+                "message": "Sorry, this spot is already booked for the specified dates",
+                "statusCode": 403,
+                "errors": {
+                    "startDate": "Start date conflicts with an existing booking",
+                    "endDate": "End date conflicts with an existing booking"
+                }
+            })
+        }
+    }
 
     specificBooking.set({ startDate, endDate })
     specificBooking.save()

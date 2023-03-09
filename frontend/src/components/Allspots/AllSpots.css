@@ -20,8 +20,8 @@ li>a {
 }
 
 .spotImg{
-     width:245px;
+    width:245px;
     border-radius: 8px;
     height: 233px;
-
+    object-fit: cover;
 }

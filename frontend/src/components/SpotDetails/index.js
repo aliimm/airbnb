@@ -19,76 +19,86 @@ const SpotDetails = () => {
     const spotSelector = useSelector(state => state.spots.oneSpot);
     const currentSession = useSelector(state => state)
     let currentUser
-    if(currentSession.session.user){
+    if (currentSession.session.user) {
 
-     currentUser = currentSession.session.user.id
+        currentUser = currentSession.session.user.id
     }
 
     useEffect(() => {
         dispatch(getReviewsForSpot(spotId))
-        .then(() => dispatch(getOneSpot(spotId)))
+            .then(() => dispatch(getOneSpot(spotId)))
 
     }, [spotId, dispatch]);
 
-        const deleteSpot = async (e) => {
-            e.preventDefault()
-            await dispatch(deleteItem(spotId))
-            history.push('/')
-        }
+    const deleteSpot = async (e) => {
+        e.preventDefault()
+        await dispatch(deleteItem(spotId))
+        history.push('/')
+    }
 
-        if (!spotSelector?.SpotImages) {
-            return null
-        }
-
-
-        return spotSelector && reviewFinder &&(
-            <nav>
-                <div className='detailsDiv'>
-                    <h1 className='title'>{spotSelector.name}</h1>
-                    <div className='infobar'><i className="fa-sharp fa-solid fa-star"></i> {+spotSelector.avgStarRating ? spotSelector.avgStarRating.toFixed(2): <>No Reviews Yet</>} · {spotSelector.numReviews} reviews  · {spotSelector.city}, {spotSelector.state}, {spotSelector.country}</div>
-                    <div className='imgContainer'>
-                        {spotSelector.SpotImages.map(x => (<div><img src={x.url} className='image' /></div>))}
+    if (!spotSelector?.SpotImages) {
+        return null
+    }
 
 
-                    { (spotSelector.ownerId === currentUser) &&
-                    <div>
-                    <NavLink to={`/spots/${spotSelector.id}/edit`}>Update Spot</NavLink>
-                    <h1></h1>
-                    <button onClick={deleteSpot} >Delete Spot</button>
-                    </div>
-                    }
-
-                    <div className='hostName'>
-                        <h2>Entire guest BNB hosted by {spotSelector.Owner.firstName}  <i class="fa-solid fa-user"></i></h2>
-                    </div>
-                    <div className='descriptionBlock'>
-                        <h1>Description:</h1>
-                        <p>{spotSelector.description}</p>
-                    </div>
-
-
-
-                          { (spotSelector.ownerId === currentUser || reviewFinder.find(element => element.userId === currentUser) || (currentUser === undefined)) ?
-                          <h1></h1>:
+    return spotSelector && reviewFinder && (
+        <nav className='container-detail-page'>
+            <div className='detailsDiv'>
+                <div className='imgContainer'>
+                <p className='title-details-spots'>{spotSelector.name}</p>
+                <div className='infobar'><i className="fa-sharp fa-solid fa-star"></i> {+spotSelector.avgStarRating ? spotSelector.avgStarRating.toFixed(2) : <>No Reviews Yet</>} · {spotSelector.numReviews} reviews  · {spotSelector.city}, {spotSelector.state}, {spotSelector.country}</div>
+                    {spotSelector.SpotImages.map(x => (<div><img src={x.url} className='image' /></div>))}
+                    {(spotSelector.ownerId === currentUser) &&
                         <div>
-                        <NavLink to={`/spots/${spotSelector.id}/createreview`}>Create a Review</NavLink>
+                            <NavLink to={`/spots/${spotSelector.id}/edit`}>Update Spot</NavLink>
+                            <h1></h1>
+                            <button onClick={deleteSpot} >Delete Spot</button>
                         </div>
-                        }
+                    }
+                    <div className='container-booking-details'>
+                        <div className='left-side-details'>
+                            <div className='hostName'>
+                                <div className='entire-host-message'>Entire guest BNB hosted by {spotSelector.Owner.firstName}</div>
+                                <div className='pfp-hostname-div'><img className='owner-pfp-spot-details' src={spotSelector.Owner.profileimg}></img></div>
+                            </div>
 
-                    <div>
-                        <AllReviewsForSpot/>
-                    </div>
-                    <div className='specialDiv'>
-                        <h1 className='priceinspecial'>Price ${spotSelector.price}</h1>
+                            <div className='superhost-div'>
+                            <div><i class="fa-solid fa-medal fa-xl"></i></div>
+                            <div className='host-div-right-side'>
+                                <div className='super-host-title'>{spotSelector.Owner.firstName} is a Superhost</div>
+                                <div className='super-host-message-desc'>Superhosts are experienced, highly rated hosts who are committed to providing great stays for guests</div>
+                            </div>
+
+
+                            </div>
+
+
+                            <div className='descriptionBlock'>
+                                <h1>Description:</h1>
+                                <p>{spotSelector.description}</p>
+                            </div>
 
 
 
+                            {(spotSelector.ownerId === currentUser || reviewFinder.find(element => element.userId === currentUser) || (currentUser === undefined)) ?
+                                <h1></h1> :
+                                <div>
+                                    <NavLink to={`/spots/${spotSelector.id}/createreview`}>Create a Review</NavLink>
+                                </div>
+                            }
 
-                    </div>
+                            <div>
+                                <AllReviewsForSpot />
+                            </div>
+                        </div>
+                        <div className='specialDiv'>
+                            <p className='priceinspecial'>${spotSelector.price} night</p>
+                        </div>
                     </div>
                 </div>
-            </nav >
-        )
+            </div>
+        </nav >
+    )
 }
 
 export default SpotDetails
