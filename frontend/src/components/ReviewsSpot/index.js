@@ -33,16 +33,9 @@ function AllReviewsForSpot() {
 
 
 
-    const reviewSelector = useSelector(state => {
-        return state.reviews.reviewList
-    });
-
-    const sessionUser = useSelector(state => state.session.user)
-
-    const spotSelector = useSelector(state => {
-        return state.spots.oneSpot
-    });
-    console.log(spotSelector)
+    const reviewSelector = useSelector(state => state.reviews.reviewList);
+    const sessionUser = useSelector(state => state?.session?.user)
+    const spotSelector = useSelector(state => state.spots.oneSpot);
 
     const reviewArray = Object?.values(reviewSelector)
 
@@ -65,6 +58,8 @@ function AllReviewsForSpot() {
             );
 
     }
+    if(!spotSelector) return null
+    if(!reviewArray) return null
 
 
 
@@ -83,7 +78,7 @@ function AllReviewsForSpot() {
 
                 }
             </div>
-            
+
 
             <nav className='container-reviews'>
                 {reviewArray?.length ? reviewArray?.map(element => (
@@ -98,7 +93,7 @@ function AllReviewsForSpot() {
                         <div className='review-message'>{element.review}</div>
 
                         {/* <h4>{element.stars} <i class="fa-solid fa-star"></i></h4> */}
-                        {element.User.id === sessionUser.id &&
+                        {element?.User?.id === sessionUser?.id &&
                             <button className = 'delete-review-button' onClick={() => reviewDelete(element.id)} >Delete Review</button>
                         }
 

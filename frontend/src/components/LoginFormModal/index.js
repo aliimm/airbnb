@@ -26,8 +26,8 @@ function LoginFormModal() {
   };
     const handleDemo = () => {
 
-      setCredential('user1@user.io')
-      setPassword('password2')
+      setCredential('demo@user.io')
+      setPassword('password')
       return dispatch(sessionActions.login({ credential, password }))
 
 

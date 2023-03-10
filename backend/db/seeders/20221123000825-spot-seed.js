@@ -31,7 +31,7 @@ module.exports = {
         lat: -6429093494.90,
         lng: 78985659083.12,
         name: 'one story house',
-        description: 'very nice house stay here',
+        description: 'The house was completely rebuild and decorated by a famous San Francisco architect. A few walking blocks to great restaurants, winery and distillery. World famous hikes are steps away. ',
         price: 450
       },
 
@@ -44,7 +44,7 @@ module.exports = {
         lat: -3489573894.75,
         lng: 82930489083.94,
         name: 'cottage',
-        description: 'a nice place to stay',
+        description: 'Positioned on the oceanfront, this 3,000+ sq. ft home has one of the most spectacular views along the coastline and is situated on one of the most private stretches of beach in Monterey Bay.',
         price: 130
       },
       {
@@ -56,7 +56,7 @@ module.exports = {
         lat: -3489573894.75,
         lng: 82930489083.94,
         name: 'room',
-        description: 'stay in my extra room',
+        description: 'Resting on the very edge of the Pacific, this exquisite villa has been designed and constructed from the ground up to unite you with the beauty and peace of the surrounding waters.',
         price: 100
       },
 

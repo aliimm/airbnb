@@ -11,7 +11,7 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       {
         spotId: 1,
-        url:'https://assets.reedpopcdn.com/coconut-mall.jpg/BROK/thumbnail/1600x900/quality/100/coconut-mall.jpg',
+        url:'https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9kZXJuJTIwaG91c2V8ZW58MHx8MHx8&w=1000&q=80',
         preview: true
       },
       {
@@ -21,12 +21,12 @@ module.exports = {
       },
       {
         spotId: 3,
-        url:'https://images.familyhomeplans.com/cdn-cgi/image/fit=scale-down,quality=85/plans/44207/44207-b580.jpg',
+        url:'https://wallpaperaccess.com/full/3571952.jpg',
         preview: true
       },
       {
         spotId: 4,
-        url:'https://media.houseandgarden.co.uk/photos/635aa9008e602477bacd63a9/2:3/w_656,h_984,c_limit/Screenshot%202022-10-27%20at%2017.51.22.png',
+        url:'https://cdn.homedit.com/wp-content/uploads/2016/06/Cool-blue-villa-from-123-dva-transparent-swimming-pool.jpg',
         preview: true
       }
     ], {});

@@ -12,34 +12,51 @@ module.exports = {
     return queryInterface.bulkInsert(options, [
       {
         firstName: 'demoo',
-        lastName: "wemmmooo",
+        lastName: "user",
         email: 'demo@user.io',
         username: 'Demo-lition',
         profileimg: 'https://urbanislandz.com/wp-content/uploads/2018/10/Drake-The-Shop.jpg',
         hashedPassword: bcrypt.hashSync('password')
       },
       {
-        firstName: 'fakieee',
-        lastName: 'wakkiie',
-        email: 'user1@user.io',
-        username: 'FakeUser1',
+        firstName: 'bryson',
+        lastName: 'tiller',
+        email: 'brysontiller@aa.io',
+        username: 'bryson1',
         profileimg: 'https://www.okayplayer.com/wp-content/uploads/2020/09/bryson-tiller-unleashes-somber-visual-for-right-my-wrongs.jpg',
-        hashedPassword: bcrypt.hashSync('password2')
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        firstName: 'wammmmm',
-        lastName: 'bammmm',
-        email: 'user2@user.io',
-        username: 'FakeUser2',
+        firstName: 'mauro',
+        lastName: 'alv',
+        email: 'mauro@aa.io',
+        username: 'mauro',
         profileimg: 'https://www.billboard.com/wp-content/uploads/media/Sheck-Wes-press-photo-2018-cr_Cian-Moore-billboard-1548.jpg',
-        hashedPassword: bcrypt.hashSync('password3')
+        hashedPassword: bcrypt.hashSync('password')
       },
       {
-        firstName: 'flemy',
+        firstName: 'flemster',
         lastName: 'wemmly',
-        email: 'user3@user.io',
+        email: 'flemster@aa.io',
         username: 'FakeUser3',
-        hashedPassword: bcrypt.hashSync('password4')
+        profileimg: 'https://imageio.forbes.com/specials-images/imageserve/6195833648d5d89e35cbeb8f/2021-MTV-Video-Music-Awards---Arrivals/960x0.jpg?format=jpg&width=960',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'yeat',
+        lastName: 'tonka',
+        email: 'yeat@aa.io',
+        username: 'yeat',
+        profileimg: 'https://images.complex.com/complex/images/c_fill,dpr_auto,f_auto,q_auto,w_1400/fl_lossy,pg_1/eys5ntxw6zjcxijbdznf/yeat-what-you-need-to-know?fimg-ssr-default',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+      {
+        firstName: 'selena',
+        lastName: 'gomez',
+        email: 'selena@aa.io',
+        username: 'selena',
+        profileimg: 'https://people.com/thmb/ZfqwkIR6h6IymZydnKO7Rk_1lNk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x105:1001x107)/Selena-Gomez-011023-72c20b1178394def9675fbaa7cdbffce.jpg',
+        hashedPassword: bcrypt.hashSync('password')
       }
     ], {});
   },
@@ -48,7 +65,7 @@ module.exports = {
     options.tableName = 'Users';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['Demo-lition', 'FakeUser1', 'FakeUser2', 'FakeUser3'] }
+      username: { [Op.in]: ['Demo-lition', 'CiaraFumar1', 'mauro', 'FakeUser3', 'yeat@aa.io', 'selena@aa.io'] }
     }, {});
   }
 };
