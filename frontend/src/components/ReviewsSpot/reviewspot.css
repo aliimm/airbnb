@@ -1,0 +1,46 @@
+.title-reviews{
+    color: #222222;
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    font-size: 19px ;
+    font-weight: 600 ;
+    line-height: 26px ;
+}
+
+
+.profileimg-reviewcard{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+.review-card-img-and-name{
+    display: flex;
+}
+.user-name-review{
+    padding-left: 10px;
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    font-size: 15px ;
+    font-weight: 500 ;
+    display: flex;
+    flex-direction: column;
+    /* height: 15px; */
+    align-self: center;
+
+
+}
+
+.review-message{
+    padding-top: 10px;
+}
+
+
+.container-reviews{
+    padding-bottom: 90px;
+}
+
+
+.reviewCard{
+    padding-top: 20px;
+}
