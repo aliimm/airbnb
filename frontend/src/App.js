@@ -8,6 +8,7 @@ import SpotDetails from "./components/SpotDetails";
 import EditSpot from './components/EditSpot'
 import CreateSpotModal from "./components/CreateSpotModal";
 import CreateReview from "./components/CreateReview";
+import SessionBookings from "./components/Bookings";
 
 function App() {
   const dispatch = useDispatch();
@@ -35,6 +36,9 @@ function App() {
           </Route>
           <Route exact path='/'>
             <CreateSpotModal/>
+          </Route>
+          <Route exact path='/bookings'>
+            <SessionBookings/>
           </Route>
 
         </Switch>

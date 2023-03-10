@@ -1,16 +1,19 @@
-.title{
-    height: 50px;
-    font-size: 35px;
-    color: black;
+.title-details-spots{
+    font-size: 26px;
+    color: #222222;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 }
 
 .descriptionBlock{
-    border-bottom: 1px solid grey;
-    margin-bottom: 18px;
-}
+    padding-top: 20px;
+    padding-bottom: 20px;
 
-.specialDiv{
-background-color: beige;
+
+}
+.desc-one-spot{
+    line-height: 24px;
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    color: rgb(34,34,34);
 
 }
 
@@ -20,54 +23,267 @@ background-color: beige;
     text-align: center;
     height: 40px;
     width: 100%;
-}
-
-.detailsDiv{
-
-    width: 900px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
 
 }
+
+
+.imgContainer{
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
 
 .hostName{
-
-    border-bottom: 1px solid grey;
-}
-/* .nav{
+    border-bottom: 1px solid rgb(221,221,221);
     display: flex;
-    align-items: center;
+    justify-content: space-around;
+}
 
-} */
+.owner-pfp-spot-details{
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
 
 
 .image{
     border-radius: 10px;
-    /* padding-top: 7px; */
     max-height: 700px;
-    /* align-items: center; */
-    /* width: 397px; */
-    width: 900px;
+    width: 1000px;
 }
 
-.specialDiv{
-display: inline-block;
-justify-content: right;
-height: 145px;
-text-align: center;
-float: right;
-border-radius: 10px;
-width: 300px;
 
-
-}
 
 .priceinspecial{
-    padding-top: 15px;
-
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    display: flex;
 }
 
 a:link { text-decoration: none; }
 a:visited { text-decoration: none;      color: black;
+}
+
+.entire-host-message{
+    font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+
+.container-booking-details{
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+
+    /* height: 100%; */
+}
+
+.left-side-details{
+    width: 600px;
+    padding-top: 49px;
+}
+
+
+.specialDiv{
+    position: sticky;
+    height: fit-content;
+    text-align: center;
+    border-radius: 12px;
+    width: 300px;
+    margin-top: 49px;
+    padding: 15px;
+    border: 1px solid rgb(221, 221, 221);
+    box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
+
+}
+
+
+.pfp-hostname-div{
+    display: flex;
+    justify-content: right;
+}
+
+.hostName{
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+
+.superhost-div{
+padding-top: 30px;
+border-bottom: 1px solid rgb(221,221,221);
+padding-bottom: 30px;
+display: flex;
+}
+
+.super-host-title{
+    color: rgb(34, 34, 34);
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding-bottom: 5px;
+}
+
+.super-host-message-desc{
+    color: rgb(113, 113, 113) ;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-weight: 400 ;
+    font-size: 14px ;
+    line-height: 20px ;
+}
+
+.host-div-right-side{
+    padding-left: 10px;
+}
+
+.fa-medal{
+    padding-top: 12px;
+}
+
+.amenities-container{
+    padding-top: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgb(221,221,221);
+
+}
+
+.single-amenity-container{
+    display: flex;
+    padding-bottom: 25px;
+}
+
+.amenity-text{
+    padding-left: 10px;
+}
+
+
+.amenities-title{
+    color: rgb(34, 34, 34) ;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-weight: 600 ;
+    font-size: 16px ;
+    line-height: 20px ;
+    margin-bottom: 4px ;
+}
+
+
+.amenities-desc{
+    color: rgb(113, 113, 113) ;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-weight: 400 ;
+    font-size: 14px ;
+    line-height: 20px ;
+}
+
+
+.amenity-icon{
+    width: 30px;
+}
+
+.reviews-container-details{
+    border-top: 1px solid rgb(221,221,221);;
+}
+
+
+.calenderinputone{
+    width: 135px;
+
+    border: 0 transparent;
+}
+
+.calenderinputtwo{
+    width: 135px;
+    padding-left: 2px;
+    border: 0 transparent;
+    border-left: rgb(176,176,176) solid 1px;
+
+}
+
+
+
+.booking-form{
+    padding: 0;
+    display: flex;
+}
+
+.date-fields{
+    display: flex;
+    justify-content: center;
+    border: rgb(176,176,176) solid 1px;
+    border-radius: 15px;
+}
+
+.submit-button-booking{
+    border: transparent;
+    width: 192px;
+    height: 48px;
+    border-radius: 5px;
+    background-color: #E00B41;
+    color:white;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+
+
+}
+
+.submit-booking-details{
+    padding-top: 15px;
+}
+
+
+.errorsDivBookings{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.create-a-review{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+}
+
+.create-a-review:hover{
+    text-decoration: underline;
+
+}
+
+.create-a-review-div{
+    margin-top: 10px;
+}
+
+
+.delete-spot-edit-spot-div{
+    display: flex;
+    justify-content: end;
+
+}
+
+.delete-spot-button-details{
+    border: 0 transparent;
+    background-color: transparent;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 13px;
+}
+
+
+.update-spot-button-details{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 13px;
+}
+
+
+.update-spot-button-details:hover{
+    text-decoration: underline;
+}
+
+
+.delete-spot-button-details:hover{
+    text-decoration: underline;
+    color: red;
 }

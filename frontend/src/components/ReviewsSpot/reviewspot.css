@@ -1,0 +1,81 @@
+.title-reviews{
+    color: #222222;
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    font-size: 19px ;
+    font-weight: 600 ;
+    line-height: 26px ;
+}
+
+
+.profileimg-reviewcard{
+    height: 40px;
+    width: 40px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+.review-card-img-and-name{
+    display: flex;
+}
+.user-name-review{
+    padding-left: 10px;
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    font-size: 15px ;
+    font-weight: 500 ;
+    display: flex;
+    flex-direction: column;
+    /* height: 15px; */
+    align-self: center;
+
+
+}
+
+.review-message{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    padding-top: 10px;
+    font-weight: 300;
+}
+
+
+.container-reviews{
+    padding-bottom: 90px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(241px, 265px));
+    column-gap: 32px;
+    row-gap: 10px;
+    grid-auto-flow: row dense;
+    list-style: none;
+}
+
+
+.reviewCard{
+    padding-top: 20px;
+}
+
+
+.timestamp-moment{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    font-size: 14px;
+    color: rgb(176,176,176);
+
+}
+
+
+.review-user-left{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+
+}
+.delete-review-button{
+    padding: 0;
+    padding-top: 5px;
+    background-color: transparent;
+    border: 0 transparent;
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+}
+
+
+.delete-review-button:hover{
+    text-decoration: underline;
+    color: red;
+}

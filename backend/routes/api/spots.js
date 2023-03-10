@@ -597,7 +597,8 @@ router.get('/:spotId', async (req, res) => {
     specficSpotlist.Owner = {
         id: specficSpotlist.User.id,
         firstName: specficSpotlist.User.firstName,
-        lastName: specficSpotlist.User.lastName
+        lastName: specficSpotlist.User.lastName,
+        profileimg: specficSpotlist.User.profileimg
 
 
     }
