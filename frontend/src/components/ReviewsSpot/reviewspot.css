@@ -32,15 +32,50 @@
 }
 
 .review-message{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
     padding-top: 10px;
+    font-weight: 300;
 }
 
 
 .container-reviews{
     padding-bottom: 90px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(241px, 265px));
+    column-gap: 32px;
+    row-gap: 10px;
+    grid-auto-flow: row dense;
+    list-style: none;
 }
 
 
 .reviewCard{
     padding-top: 20px;
+}
+
+
+.timestamp-moment{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    font-size: 14px;
+    color: rgb(176,176,176);
+
+}
+
+
+.review-user-left{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+
+}
+.delete-review-button{
+    padding: 0;
+    padding-top: 5px;
+    background-color: transparent;
+    border: 0 transparent;
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+}
+
+
+.delete-review-button:hover{
+    text-decoration: underline;
+    color: red;
 }

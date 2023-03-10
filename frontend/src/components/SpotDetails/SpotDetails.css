@@ -15,9 +15,8 @@
     font-family: Circular,-apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
     color: rgb(34,34,34);
 
-
-
 }
+
 
 .infobar{
     display: inline-flex;
@@ -82,6 +81,8 @@ a:visited { text-decoration: none;      color: black;
     display: flex;
     width: 1000px;
     justify-content: space-between;
+
+    /* height: 100%; */
 }
 
 .left-side-details{
@@ -91,7 +92,8 @@ a:visited { text-decoration: none;      color: black;
 
 
 .specialDiv{
-    height: 145px;
+    position: sticky;
+    height: fit-content;
     text-align: center;
     border-radius: 12px;
     width: 300px;
@@ -100,7 +102,8 @@ a:visited { text-decoration: none;      color: black;
     border: 1px solid rgb(221, 221, 221);
     box-shadow: rgb(0 0 0 / 12%) 0px 6px 16px;
 
-    }
+}
+
 
 .pfp-hostname-div{
     display: flex;
@@ -187,4 +190,100 @@ display: flex;
 
 .reviews-container-details{
     border-top: 1px solid rgb(221,221,221);;
+}
+
+
+.calenderinputone{
+    width: 135px;
+
+    border: 0 transparent;
+}
+
+.calenderinputtwo{
+    width: 135px;
+    padding-left: 2px;
+    border: 0 transparent;
+    border-left: rgb(176,176,176) solid 1px;
+
+}
+
+
+
+.booking-form{
+    padding: 0;
+    display: flex;
+}
+
+.date-fields{
+    display: flex;
+    justify-content: center;
+    border: rgb(176,176,176) solid 1px;
+    border-radius: 15px;
+}
+
+.submit-button-booking{
+    border: transparent;
+    width: 192px;
+    height: 48px;
+    border-radius: 5px;
+    background-color: #E00B41;
+    color:white;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+
+
+}
+
+.submit-booking-details{
+    padding-top: 15px;
+}
+
+
+.errorsDivBookings{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.create-a-review{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+}
+
+.create-a-review:hover{
+    text-decoration: underline;
+
+}
+
+.create-a-review-div{
+    margin-top: 10px;
+}
+
+
+.delete-spot-edit-spot-div{
+    display: flex;
+    justify-content: end;
+
+}
+
+.delete-spot-button-details{
+    border: 0 transparent;
+    background-color: transparent;
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 13px;
+}
+
+
+.update-spot-button-details{
+    font-family: Circular, -apple-system, BlinkMacSystemFont, Roboto, "Helvetica Neue", sans-serif ;
+    font-size: 13px;
+}
+
+
+.update-spot-button-details:hover{
+    text-decoration: underline;
+}
+
+
+.delete-spot-button-details:hover{
+    text-decoration: underline;
+    color: red;
 }

@@ -6,9 +6,11 @@ import LoginFormModal from '../LoginFormModal';
 import SignupFormModal from '../SignupFormModal';
 import CreateSpotModal from '../CreateSpotModal'
 import './Navigation.css'
+import { useHistory } from "react-router-dom";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
+  const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
   const ulRef = useRef();
 
@@ -43,30 +45,31 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu} >
+      <button onClick={openMenu} className='profileButton'>
         {/* <i className="fas fa-user-circle" /> */}
-        <i class="fa-solid fa-id-card"></i>
+        <i class="fa-solid fa-user"></i>
       </button>
-      <ul className={ulClassName} ref={ulRef}>
+      <div className={ulClassName} ref={ulRef}>
         {user ? (
           <>
-            <li>{user.username}</li>
-            <li>{user.firstName} {user.lastName}</li>
-            <li>{user.email}</li>
-            {/* <li> <button onClick={CreateSpotModal}>Create A Spot</button></li> */}
-            <li className='spotButton'>
+            <p>{user.firstName} {user.lastName}</p>
+            <p className="user-email-dropdown">{user.email}</p>
+            <p className='logout-button'>
 
             <OpenModalMenuItem
-
               itemText="Create A Spot"
               onItemClick={closeMenu}
               modalComponent={<CreateSpotModal />}
             />
-            </li>
+            </p>
 
-            <li>
-              <button onClick={logout}>Log Out</button>
-            </li>
+            <p>
+              <button className='logout-button' onClick={() => history.push('/bookings').then({closeMenu})}>Bookings</button>
+            </p>
+
+            <p>
+              <button className='logout-button' onClick={logout}>Log Out</button>
+            </p>
           </>
         ) : (
           <>
@@ -82,7 +85,7 @@ function ProfileButton({ user }) {
             />
           </>
         )}
-      </ul>
+      </div>
     </>
   );
 }

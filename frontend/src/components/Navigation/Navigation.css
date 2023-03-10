@@ -47,3 +47,49 @@
     font-size: 28px;
     color: grey;
 }
+
+.profile-dropdown {
+    position: absolute;
+    margin-top: 300px;
+    margin-right: 150px;
+  }
+
+  .profileButton {
+    padding: 15px;
+    margin-top: -5px;
+    margin-left: 4px;
+    border-radius: 50%;
+    border: none;
+    background-color:rgb(232,232,232);
+    color: grey;
+    cursor: pointer;
+  }
+  .profile-dropdown {
+    font-size: 16px;
+    background-color: white;
+    border: none;
+    border-radius: 10px;
+    width: 100px;
+    padding: 10px;
+    box-shadow: 5px 1px 12px rgb(166, 162, 162);
+    right: 10px;
+    cursor: pointer;
+  }
+
+  .logout-button {
+    border: transparent;
+    background-color: white;
+    font-size: 16px;
+    left: -40px;
+  }
+
+  .logout-button:hover {
+    background-color: rgb(232,232,232);
+    border-radius: 8px;
+  }
+
+
+  .user-email-dropdown{
+    border-bottom: 1px lightgray solid;
+    padding-bottom: 15px;
+  }
