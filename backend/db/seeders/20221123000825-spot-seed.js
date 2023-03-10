@@ -18,7 +18,7 @@ module.exports = {
         lat: -3489573894.75,
         lng: 82930489083.94,
         name: 'house in the trenches',
-        description: 'Mountain Views. Luxury. Catch up to the quiet you promised yourself. We deliberately curated furniture, stone, wood, and artifacts to bring an experience of beauty that is both modern and warm with heritage. The Shunem top story is completely separate and dedicated to retreat for our guests. The Bread House first story is a hive of enriching activity for our nonprofit, Sky Roots, and our coffeehouse, Good Seed Coffee, and can be rented exclusively on occasion or enjoyed as a lounge/shared space.',
+        description: 'Mountain Views. Luxury. Catch up to the quiet you promised yourself. We deliberately curated furniture, stone, wood, and artifacts to bring an experience of beauty that is both modern and warm with heritage.',
         price: 199
       },
 
