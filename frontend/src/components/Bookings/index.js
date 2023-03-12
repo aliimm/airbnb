@@ -84,7 +84,30 @@ const SessionBookings = () => {
 
     return (
         <div className='bookings-container'>
-            <div className='previous-bookings-title'>Upcoming Trips</div>
+            <div className='trips-title-bookings'>Trips</div>
+                {!futureBookings.length &&
+
+                    <div className='book-a-spot-container'>
+                        <div className='text-left-booking-banner'>
+
+                            <div><i class="fa-solid fa-thumbtack"></i></div>
+
+                            <div>No trips booked...yet!</div>
+
+                            <div className='text-in-text-left-banner'>Time to dust off your bags and start planning your<br/> next adventure</div>
+
+                            <button className='no-bookings-button' onClick={() => history.push('/')}>Start Searching</button>
+
+                        </div>
+
+
+                        <div><img className='img-no-booking-picture' src='https://a0.muscache.com/im/pictures/d727f355-3f10-44b5-9750-d1efca2438fc.jpg?im_w=720'></img></div>
+
+
+                    </div>
+
+
+                }
             <div className='all-bookings'>
 
                 {futureBookings.map(booking => (

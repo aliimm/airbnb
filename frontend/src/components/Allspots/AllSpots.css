@@ -25,3 +25,33 @@ li>a {
     height: 233px;
     object-fit: cover;
 }
+
+
+.city-state-rating-div{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 25px;
+}
+
+.all-spots-text{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+}
+
+
+.spotCard{
+    display: flex;
+    justify-content: center;
+}
+
+.rating-all-spots-card{
+    height: fit-content
+}
+
+
+.posted-stamp-allspots{
+    font-family: 'Circular',-apple-system,'BlinkMacSystemFont','Roboto','Helvetica Neue',sans-serif;
+    font-size: 14px;
+    color: rgb(113,113,113);
+}
