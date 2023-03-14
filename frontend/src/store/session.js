@@ -49,6 +49,7 @@ export const signup = (user) => async (dispatch) => {
 // frontend/src/store/session.js
 // ...
 export const restoreUser = () => async dispatch => {
+  console.log('NOWWW')
     const response = await csrfFetch('/api/session');
     const data = await response.json();
     dispatch(setUser(data.user));

@@ -40,27 +40,26 @@
     display: inline-flex;
     align-items: center;
     width: 145px;
-    color: black
 }
 
-.profile-button > i ~ i {
+/* .profile-button > i ~ i {
     font-size: 28px;
     color: grey;
-}
+} */
 
 .profile-dropdown {
     position: absolute;
-    margin-top: 300px;
-    margin-right: 150px;
+    /* margin-top: 300px; */
+    /* margin-right: 0px; */
   }
 
   .profileButton {
+    width: 70px;
     padding: 15px;
     margin-top: -5px;
     margin-left: 4px;
-    border-radius: 50%;
+    border-radius: 15px;
     border: none;
-    background-color:rgb(232,232,232);
     color: grey;
     cursor: pointer;
   }
@@ -72,9 +71,9 @@
     width: 100px;
     padding: 10px;
     box-shadow: 5px 1px 12px rgb(166, 162, 162);
+    top: 15px;
     right: 10px;
     cursor: pointer;
-    /* min-height: 100px; */
   }
 
   .logout-button {
@@ -95,3 +94,19 @@
     padding-bottom: 15px;
   }
 
+
+  .container-profile-button{
+    border: 1px black solid;
+    width: 77px;
+    height: 42px;
+    cursor: pointer;
+    border-radius: 21px;
+    /* transition: box-shadow 0.2s ease; */
+    display: flex;
+  }
+
+  .profileimg-nav-btton{
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+  }

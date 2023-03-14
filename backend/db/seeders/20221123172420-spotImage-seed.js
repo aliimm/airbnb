@@ -28,6 +28,26 @@ module.exports = {
         spotId: 4,
         url:'https://cdn.homedit.com/wp-content/uploads/2016/06/Cool-blue-villa-from-123-dva-transparent-swimming-pool.jpg',
         preview: true
+      },
+      {
+        spotId: 5,
+        url:'https://a0.muscache.com/im/pictures/f2f046e7-1aa3-4f04-99b0-8bc2de2c7252.jpg?im_w=1200',
+        preview: true
+      },
+      {
+        spotId: 6,
+        url:'http://cdn.home-designing.com/wp-content/uploads/2010/08/1-modern-beach-house-with-white-exterior-paint.jpg',
+        preview: true
+      },
+      {
+        spotId: 7,
+        url:'https://athomeinhollywood.com/wp-content/uploads/2019/01/Mark-Cuban-Laguna-California-room.jpg',
+        preview: true
+      },
+      {
+        spotId: 8,
+        url:'https://static.mansionglobal.com/production/media/listing_images/84def9e60c6fca18465f9fcdd7f521e6/xlarge_Front_Buckthorn.jpg',
+        preview: true
       }
     ], {});
   },
@@ -36,7 +56,7 @@ module.exports = {
     options.tableName = 'SpotImages';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      spotId: { [Op.in]: [1, 2, 3, 4] }
+      spotId: { [Op.in]: [1, 2, 3, 4, 5] }
     }, {});
   }
 };

@@ -57,7 +57,16 @@ module.exports = {
         username: 'selena',
         profileimg: 'https://people.com/thmb/ZfqwkIR6h6IymZydnKO7Rk_1lNk=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(999x105:1001x107)/Selena-Gomez-011023-72c20b1178394def9675fbaa7cdbffce.jpg',
         hashedPassword: bcrypt.hashSync('password')
-      }
+      },
+      {
+        firstName: 'kalan',
+        lastName: 'frfr',
+        email: 'kalana@aa.io',
+        username: 'kalanfrfr',
+        profileimg: 'https://i0.wp.com/theperfectplay.co/wp-content/uploads/2021/08/IMG_6040.jpg?fit=1079%2C1079&ssl=1',
+        hashedPassword: bcrypt.hashSync('password')
+      },
+
     ], {});
   },
 
@@ -65,7 +74,7 @@ module.exports = {
     options.tableName = 'Users';
     const Op = Sequelize.Op;
     return queryInterface.bulkDelete(options, {
-      username: { [Op.in]: ['Demo-lition', 'CiaraFumar1', 'mauro', 'FakeUser3', 'yeat@aa.io', 'selena@aa.io'] }
+      username: { [Op.in]: ['Demo-lition', 'CiaraFumar1', 'mauro', 'FakeUser3', 'yeat@aa.io', 'selena@aa.io', 'kalanfrfr'] }
     }, {});
   }
 };

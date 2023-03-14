@@ -38,8 +38,8 @@ form {
 .button{
 background-color: rgb(227, 28, 95);
 color: white;
-margin-top: 70px;
-height: 50px;
+/* margin-top: 70px; */
+/* height: 50px; */
 border-radius: 9px;
 }
 
@@ -58,4 +58,14 @@ button:hover {
     width: 38em;
     display: flex;
     justify-content: right;
+}
+
+
+.sign-in-demo-button{
+    border: 0 transparent;
+    background-color: transparent;
+}
+
+.sign-in-demo-button:hover{
+    text-decoration: underline;
 }

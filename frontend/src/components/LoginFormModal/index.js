@@ -67,7 +67,7 @@ function LoginFormModal() {
           <p className="terms">We’ll call or text you to confirm your number. Standard message and data rates apply. Privacy Policy</p>
 
         <button className="button" type="submit">Continue</button>
-        <button onClick={handleDemo} type="submit">Sign in with Demo User</button>
+        <button  className = 'sign-in-demo-button' onClick={handleDemo} type="submit">Sign in with Demo User</button>
       </form>
     </>
   );
